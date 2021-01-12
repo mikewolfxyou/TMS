@@ -1,0 +1,5 @@
+INSERT INTO tinytm_segments (segment_id, segment_key, parent_id, owner_id, creation_date, creation_ip, customer_id, segment_type_id, text_type, document_key, source_lang_id, target_lang_id, tags, source_text, target_text, subject_area_id)
+VALUES (nextval('tinytm_segments_seq'), NULL, NULL, 1, '2020-12-30 06:29:08.840103+02', '0.0.0.0', NULL, tinytm_segment_type_id_from_string('Segment'), 'text/plain', NULL, tinytm_language_id_from_string('en'), tinytm_language_id_from_string('de'), NULL, 'Hello World', 'Hallo Welt', NULL);
+
+INSERT INTO tinytm_segments (segment_id, segment_key, parent_id, owner_id, creation_date, creation_ip, customer_id, segment_type_id, text_type, document_key, source_lang_id, target_lang_id, tags, source_text, target_text, subject_area_id)
+VALUES (nextval('tinytm_segments_seq'), NULL, NULL, 1, '2020-12-30 06:29:08.840103+02', '0.0.0.0', NULL, tinytm_segment_type_id_from_string('Segment'), 'text/plain', NULL, tinytm_language_id_from_string('en'), tinytm_language_id_from_string('de'), NULL, 'I walk to the supermarket', 'Ich gehe zum Supermarkt.', NULL);

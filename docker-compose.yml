@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  db:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    volumes:
+      - ./asset/database/tinytm-create-user.sql:/docker-entrypoint-initdb.d/1-tinytm-create-user.sql
+      - ./asset/database/tinytm-create-standalone.sql:/docker-entrypoint-initdb.d/2-tinytm-create-standalone.sql
+      - ./asset/database/tinytm-create-procedures.sql:/docker-entrypoint-initdb.d/3-tinytm-create-procedures.sql
+      - ./asset/database/tms-create-demodata.sql:/docker-entrypoint-initdb.d/4-tms-create-demodata.sql
+      - ./asset/database/tms-create-standalone.sql:/docker-entrypoint-initdb.d/5-tms-create-standalone.sql
+      - 'postgresql_master_data:/bitnami/postgresql'
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=password123
+      - POSTGRESQL_DATABASE=postgres
+  tms:
+    image: miketms:latest
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+      - '3002:3002'
+    expose:
+      - '3000'
+      - '3001'
+      - '3002'
+    volumes:
+      - ./uploads:/usr/src/app/uploads
+      - ./translated:/usr/src/app/translated
+volumes:
+  postgresql_master_data:

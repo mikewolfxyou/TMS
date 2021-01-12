@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "f9761990-b5b4-49e7-9726-842c758a32d7",
+		"name": "TranslationSystems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TranslationSubmitter",
+			"item": [
+				{
+					"name": "SubmitTranslationRequest",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/assset/backToFuture2021.txt",
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/assset/backToFuture2022.txt",
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/assset/backToFuture2023.txt"
+									]
+								},
+								{
+									"key": "email",
+									"value": "mikewolfxyou@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "en",
+									"type": "text"
+								},
+								{
+									"key": "target",
+									"value": "de",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/translation-requests",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"translation-requests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TranslationManagementSystem",
+			"item": [
+				{
+					"name": "TranslationManagementSystem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mikewolfxyou@gmail.com\",\n    \"source\": \"en\",\n    \"target\": \"de\",\n    \"originalFileName\": \"uploads/backToFuture2021.txt\",\n    \"submittedPath\": \"backToFuture2021.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/document-translation",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"document-translation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TMS DataFeed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/asset/customer-source/backToFuture2024.txt",
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/asset/customer-source/backToFuture2023.txt",
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/asset/customer-source/backToFuture2022.txt",
+										"/Users/mikezhang/Projects/backend-coding-challenge-zhiguo-zhang/asset/customer-source/backToFuture2021.txt"
+									]
+								},
+								{
+									"key": "email",
+									"value": "mikewolfxyou@gmail.com",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/data-feed",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"data-feed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
